@@ -2,7 +2,9 @@
 import Menubar from 'primevue/menubar';
 import { InputText } from 'primevue';
 import FloatLabel from 'primevue/floatlabel';
-import { ref } from 'vue';
+import Button from 'primevue/button';
+import { Form } from '@primevue/forms';
+import { ref, reactive } from 'vue';
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
@@ -33,7 +35,7 @@ const items = ref([
     label: '登入',
     icon: 'pi pi-fw pi-sign-in',
     command: () => {
-      router.push('/auth/login')
+      router.push('/auth/login');
     }
   }
   // {
@@ -51,7 +53,17 @@ const items = ref([
   //   ]
   // }
 ]);
-const search = ref('');
+const initialValues = reactive({
+  search: '',
+});
+
+const onFormSubmit = ({ values }) => {
+  console.log('查詢', values)
+  if (Object.values(values).every(item => item !== '')) {
+    router.push('/search');
+  }
+};
+
 </script>
 
 <template>
@@ -70,14 +82,30 @@ const search = ref('');
         </svg>
       </div>
       <div class="w-[50%] flex justify-center">
-        <FloatLabel variant="in" class="w-full">
-          <InputText
-            id="search_label"
-            class="w-full rounded-none border-t-0 border-l-0 border-r-0 border-b-1 border-alto-50 bg-transparent hover:bg-pickled-bluewood-200/10 focus:bg-pickled-bluewood-200/30 focus:text-alto-50 transition-colors duration-300"
-            v-model="search"
-          />
-          <label for="search_label" class="text-alto-50">查詢：</label>
-        </FloatLabel>
+        <Form
+          :initialValues
+          @submit="onFormSubmit"
+          class="w-full"
+        >
+          <FloatLabel variant="in" class="w-full relative">
+            <InputText
+              id="search_label"
+              name="search"
+              autocomplete="off"
+              class="w-full rounded-none border-t-0 border-l-0 border-r-0 border-b-1 border-alto-50 bg-transparent hover:bg-pickled-bluewood-200/10 focus:bg-pickled-bluewood-200/30 focus:text-alto-50 transition-colors duration-300"
+            />
+            <label for="search_label" class="text-alto-50">查詢：</label>
+            <div class="absolute inset-y-0 right-0 flex items-center">
+              <Button
+                type="submit"
+                icon="pi pi-search"
+                variant="text"
+                aria-label="Filter"
+                class="h-[40px] text-alto-50 rounded-none hover:bg-pickled-bluewood-200 hover:text-alto-950"
+              />
+            </div>
+          </FloatLabel>
+        </Form>
       </div>
       <div class="w-1/4 flex justify-end items-center text-alto-50">
         尚未登入，請登入
