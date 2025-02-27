@@ -69,7 +69,8 @@ const onFormSubmit = ({ values }) => {
 <template>
   <div class="h-[140px] bg-pickled-bluewood-600 flex flex-col justify-between">
     <div class="px-[12px] py-[8px] flex justify-between">
-      <div class="w-1/4 flex items-center"> <!-- *logo -->
+      <div class="w-1/4 flex items-center">
+         <!-- *logo -->
         <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-8">
           <path
             d="M25.87 18.05L23.16 17.45L25.27 20.46V29.78L32.49 23.76V13.53L29.18 14.73L25.87 18.04V18.05ZM25.27 35.49L29.18 31.58V27.67L25.27 30.98V35.49ZM20.16 17.14H20.03H20.17H20.16ZM30.1 5.19L34.89 4.81L33.08 12.33L24.1 15.67L30.08 5.2L30.1 5.19ZM5.72 14.74L2.41 13.54V23.77L9.63 29.79V20.47L11.74 17.46L9.03 18.06L5.72 14.75V14.74ZM9.63 30.98L5.72 27.67V31.58L9.63 35.49V30.98ZM4.8 5.2L10.78 15.67L1.81 12.33L0 4.81L4.79 5.19L4.8 5.2ZM24.37 21.05V34.59L22.56 37.29L20.46 39.4H14.44L12.34 37.29L10.53 34.59V21.05L12.42 18.23L17.45 26.8L22.48 18.23L24.37 21.05ZM22.85 0L22.57 0.69L17.45 13.08L12.33 0.69L12.05 0H22.85Z"
@@ -92,7 +93,7 @@ const onFormSubmit = ({ values }) => {
               id="search_label"
               name="search"
               autocomplete="off"
-              class="w-full rounded-none border-t-0 border-l-0 border-r-0 border-b-1 border-alto-50 bg-transparent hover:bg-pickled-bluewood-200/10 focus:bg-pickled-bluewood-200/30 focus:text-alto-50 transition-colors duration-300"
+              class="w-full rounded-none border-t-0 border-l-0 border-r-0 border-b-1 border-alto-50 text-alto-50 bg-transparent hover:bg-pickled-bluewood-200/10 focus:bg-pickled-bluewood-200/30 transition-colors duration-300"
             />
             <label for="search_label" class="text-alto-50">查詢：</label>
             <div class="absolute inset-y-0 right-0 flex items-center">
@@ -108,7 +109,12 @@ const onFormSubmit = ({ values }) => {
         </Form>
       </div>
       <div class="w-1/4 flex justify-end items-center text-alto-50">
-        尚未登入，請登入
+        <span
+          class="hover:underline"
+          @click="() => router.push('/auth/login')"
+        >
+          尚未登入，請先登入
+        </span>
       </div>
     </div>
     <Menubar
