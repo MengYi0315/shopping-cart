@@ -55,7 +55,7 @@ const products = ref([
       }"
     >
       <template #item="item">
-        <div class="border border-surface-200 dark:border-surface-700 rounded h-[100%] m-2 p-4">
+        <div class="border border-surface-200 dark:border-surface-700 rounded h-[calc(100%-16px)] m-2 p-4">
           <div class="mb-4">
             <div class="relative mx-auto">
               <!-- <img :src="'https://primefaces.org/cdn/primevue/images/product/' + item.data.image" :alt="item.data.name" class="w-full rounded" />
