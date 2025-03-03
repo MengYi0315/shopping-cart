@@ -17,20 +17,20 @@ const items = ref([
       router.push('/');
     }
   },
-  {
-    label: '編輯',
-    icon: 'pi pi-fw pi-pencil',
-    items: [
-      {
-        label: '新增',
-        icon: 'pi pi-fw pi-plus',
-      },
-      {
-        label: '刪除',
-        icon: 'pi pi-fw pi-trash'
-      }
-    ]
-  },
+  // {
+  //   label: '編輯',
+  //   icon: 'pi pi-fw pi-pencil',
+  //   items: [
+  //     {
+  //       label: '新增',
+  //       icon: 'pi pi-fw pi-plus',
+  //     },
+  //     {
+  //       label: '刪除',
+  //       icon: 'pi pi-fw pi-trash'
+  //     }
+  //   ]
+  // },
   {
     label: '登入',
     icon: 'pi pi-fw pi-sign-in',
