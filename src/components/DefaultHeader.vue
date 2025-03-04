@@ -108,12 +108,19 @@ const onFormSubmit = ({ values }) => {
           </FloatLabel>
         </Form>
       </div>
-      <div class="w-1/4 flex justify-end items-center text-alto-50">
+      <div class="w-1/4 flex justify-end items-center gap-4 text-alto-50">
+        <span
+          class="hover:underline"
+          @click="() => router.push('/auth/register')"
+        >
+          註冊
+        </span>
+        <div class="border-l-[1px] w-[1px] h-4"></div>
         <span
           class="hover:underline"
           @click="() => router.push('/auth/login')"
         >
-          尚未登入，請先登入
+          登入
         </span>
       </div>
     </div>
