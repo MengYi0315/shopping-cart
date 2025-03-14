@@ -1,9 +1,15 @@
 <script setup>
+import { ref, onMounted } from 'vue';
+import Aos from 'aos';
 import Carousel from 'primevue/carousel';
 import Button from 'primevue/button';
-import { ref } from 'vue';
+import Card from 'primevue/card';
+
 import carousel1 from '@/assets/carousels/carousel1.jpg';
 import carousel2 from '@/assets/carousels/carousel2.jpg';
+
+import '../01_Home/HomeView.scss';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 const products = ref([
   {
@@ -28,10 +34,47 @@ const products = ref([
   // }
 ]);
 
+const categorys_data = ref([
+  {
+    category: '鉛筆',
+    icon: 'pencil',
+    id: '1',
+  },
+  {
+    category: '原子筆',
+    icon: 'pen-clip',
+    id: '2',
+  },
+  {
+    category: '鋼筆',
+    icon: 'pen-fancy',
+    id: '3',
+  },
+  {
+    category: '橡皮擦',
+    icon: 'eraser',
+    id: '4',
+  },
+  {
+    category: '背包',
+    icon: 'briefcase',
+    id: '1',
+  },
+  {
+    category: '書籍',
+    icon: 'book',
+    id: '1',
+  },
+]);
+
+
+onMounted(() => {
+  Aos.init();
+});
 </script>
 
 <template>
-  <div id="HomeView">
+  <div id="Home">
     <Carousel
       :value="products"
       :numVisible="1"
@@ -54,13 +97,15 @@ const products = ref([
         itemList: {
           class: 'h-[100%]'
         },
-
+        // indicatorButton: {
+        //   class: 'active:bg-pickled-bluewood-600'
+        // }
       }"
     >
       <template #item="item">
-        <div class="border border-surface-200 dark:border-surface-700 rounded-none h-[calc(100%-16px)] my-2 bg-gray-400">
+        <div class="transition-all delay-150 border border-surface-200 dark:border-surface-700 rounded-none h-[calc(100%-16px)] my-2">
           <div class="h-full">
-            <div class="relative mx-auto h-full">
+            <div class="relative mx-auto ">
               <img
                 :src=item.data.img
                 :alt="item.data.title"
@@ -110,7 +155,41 @@ const products = ref([
       </template>
     </Carousel>
 
+    <div class="mx-[50px] mt-[100px] pb-[50px]">
+      <Card
+        class="bg-white border-0"
+        :pt="{
+          body: {
+            class: 'bg-white border-none rounded-0'
+          },
+          title: {
+            class: 'text-[25px] py-[10px]'
+          }
+        }"
+        data-aos="fade-up"
+      >
+        <template #title>
+          商品分類
+        </template>
+        <template #content>
+          <div class="grid grid-cols-6 gap-5">
+            <div
+              v-for="(item, index) in categorys_data"
+              :key="index"
+              class="flex flex-col items-center justify-around w-[200px] h-[160px] transition-all hover:bg-pickled-bluewood-400 hover:text-pickled-bluewood-100"
+            >
+              <FontAwesomeIcon :icon="item.icon" class="text-[35px] p-[20px]"/>
+              <div class="text-[18px] py-[10px]">
+                {{ item.category }}
+              </div>
+            </div>
+          </div>
+        </template>
 
-    Home
+
+      </Card>
+
+    </div>
+
   </div>
 </template>

@@ -7,6 +7,7 @@ export default {
   theme: {
     extend: {
       colors: {
+        'white': '#FFF',
         'william': {
           '50': '#f4f9f9',
           '100': '#dbecea',

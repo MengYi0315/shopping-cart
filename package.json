@@ -12,8 +12,14 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/free-brands-svg-icons": "^6.7.2",
+    "@fortawesome/free-regular-svg-icons": "^6.7.2",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/vue-fontawesome": "^3.0.8",
     "@primeuix/themes": "^1.0.0-rc.1",
     "@primevue/forms": "^4.3.1",
+    "aos": "^2.3.4",
     "axios": "^1.7.9",
     "pinia": "^3.0.1",
     "primeicons": "^7.0.0",
@@ -32,6 +38,7 @@
     "gh-pages": "^6.3.0",
     "postcss": "^8.4.35",
     "prettier": "^3.5.1",
+    "sass": "^1.85.1",
     "tailwindcss": "^3.4.1",
     "vite": "^6.1.0",
     "vite-plugin-vue-devtools": "^7.7.2"

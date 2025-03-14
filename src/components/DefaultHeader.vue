@@ -17,6 +17,20 @@ const items = ref([
       router.push('/');
     }
   },
+  {
+    label: '分類',
+    icon: 'pi pi-fw pi-th-large',
+    command: () => {
+      router.push('/category');
+    }
+  },
+  {
+    label: '購物車',
+    icon: 'pi pi-fw pi-shopping-cart',
+    command: () => {
+      router.push('/cart');
+    }
+  },
   // {
   //   label: '編輯',
   //   icon: 'pi pi-fw pi-pencil',
